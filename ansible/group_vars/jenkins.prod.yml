@@ -1,6 +1,6 @@
 # EC2 instance variable
 
-stack_name: "Jenkins Appian CICD Slave"
+stack_name: "Jenkins Appian CICD Master"
 state: "present"
 region: "ap-southeast-2"
 infra_version: "1.0"
@@ -22,7 +22,7 @@ ec2:
     - "sg-38c4da41"
   assign_public_ip: "yes"
   tags:
-    "Name": "Jenkins slave AMI Image"
+    "Name": "Jenkins master AMI Image"
     "exempted_date": "15/08/2018"
     "nbn_applicationSource": "new"
     "nbn_env_code": "np"
