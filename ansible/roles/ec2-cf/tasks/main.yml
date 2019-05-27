@@ -1,4 +1,3 @@
-# 모든 기본값은 group_vars에 있는것을 참조하도록 하고, 기본값을 Overwrite하려면, Playbook을 실행시킬때 파라미터로 넘기도록 한다.
 # Create EC2 instance by CloudFormation
 - name: Create EC2 Stack using Cloudformation
   cloudformation:
@@ -14,7 +13,25 @@
       KeyName: "{{ec2.key_pair}}"
       SecurityGroup: "{{ ec2.security_groups }}"
     tags:
-      InfraCodeVersion: "{{ infra_version }}"
-      Environment: "{{ env_type }}"
-      Colour: "{{ colour }}"
+      "Name": "Appian CICD Master"
+      "Environment": "{{ env_type }}"
+      "exempted_date": "{{ ec2.tags.exempted_date }}"
+      "nbn:applicationSource": "{{ ec2.tags.nbn_applicationSource }}"
+      "nbn:env:code": "{{ ec2.tags.nbn_env_code }}"
+      "nbn:env:subcode": "{{ ec2.tags.nbn_env_subcode }}"
+      "nbn:focalPoint:applicationId": "{{ ec2.tags.nbn_focalPoint_applicationId }}"
+      "nbn:focalPoint:applicationName": "{{ ec2.tags.nbn_focalPoint_applicationName }}"
+      "nbn:focalPoint:applicationShortName": "{{ ec2.tags.nbn_focalPoint_applicationShortName }}"
+      "nbn:focalPoint:sdgCode": "{{ ec2.tags.nbn_focalPoint_sdgCode }}"
+      "nbn:focalPoint:sdgPlatformCode": "{{ ec2.tags.nbn_focalPoint_sdgPlatformCode }}"
+      "nbn:focalPoint:sdgPlatformName": "{{ ec2.tags.nbn_focalPoint_sdgPlatformName }}"
+      "nbn:focalPoint:systemTeamEmail": "{{ ec2.tags.nbn_focalPoint_systemTeamEmail }}"
+      "nbn:focalPoint:systemTeamLead": "{{ ec2.tags.nbn_focalPoint_systemTeamLead }}"
+      "nbn:focalPoint:systemTeamName": "{{ ec2.tags.nbn_focalPoint_systemTeamName }}"
+      "nbn:operationalMode": "{{ ec2.tags.nbn_operationalMode }}"
+      "nbn:teamCode": "{{ ec2.tags.nbn_teamCode }}"
+      "state:scheduleName": "{{ ec2.tags.state_scheduleName }}"
+      "nbn:ast:ownerName": "{{ ec2.tags.nbn_ast_ownerName }}"
+      "nbn:ast:ownerEmail": "{{ ec2.tags.nbn_ast_ownerEmail }}"
+      "nbn:ast:ownerMobile": "{{ ec2.tags.nbn_ast_ownerMobile }}"
   register: stack
