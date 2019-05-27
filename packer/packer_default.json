@@ -1,11 +1,7 @@
 {
   "variables": {
     "access_key": "{{env `GB_AWS_PACKER_ACCESS_KEY`}}",
-    "secret_key": "{{env `GB_AWS_PACKER_SECRET_KEY`}}",
-    "region": "",
-    "source_ami": "",
-    "instance_type": "",
-    "ssh_username": ""
+    "secret_key": "{{env `GB_AWS_PACKER_SECRET_KEY`}}"
   },
   "builders": [{
     "type": "amazon-ebs",
